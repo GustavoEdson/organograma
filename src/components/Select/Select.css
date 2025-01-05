@@ -1,15 +1,11 @@
-.input-text {
-    margin: 24px 0;
-}
-
-.input-text label {
+.select label {
     display: block;
     margin-bottom: 8px;
     font-size: 24px;
     font-family: sans-serif;
 }
 
-.input-text input {
+.select select {
     background-color: #fff;
     box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.062);
     width: 100%;
