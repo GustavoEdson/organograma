@@ -10,7 +10,7 @@ const InputText = ({label, inputId, inputPlaceholder, isRequired}) => {
 
     const onType = (e) => {
       setValue(e.target.value)
-      console.log(value);
+      console.log({value});
       
     }
 
