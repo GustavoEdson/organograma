@@ -1,10 +1,10 @@
 import "./Card.css"
 
-const Card = ({name, position, }) => {
+const Card = ({name, position, image }) => {
     return (
         <div className="card">
             <div className="head">
-                <img src="https://github.com/GustavoEdson.png" alt="" />
+                <img src={image} alt={name} />
             </div>
             <div className="foot">
                 <h4>{name}</h4>

@@ -42,21 +42,21 @@ function App() {
 
   const [collaborators, setCollaborators] = useState([])
   
-  const addNewCollaborator = (collaborator) => {
+  const newContributorAdded  = (collaborator) => {
     setCollaborators([...collaborators, collaborator])
   }
 
   return (
     <div>
        <Banner />
-       <Form teams={teams.map(team => team.name)} addNewCollaborator={collaborator => addNewCollaborator=(collaborator)}/>
+       <Form teams={teams.map(team => team.name)} collaboratorRegistered={collaborator => newContributorAdded(collaborator)}/>
         {teams.map(team => 
             <Team 
                 key={team.name} 
                 name={team.name} 
                 primaryColor={team.primaryColor} 
                 secondaryColor={team.secondaryColor}
-                collaborators={collaborators}
+                collaborators={collaborators.filter(collaborator => collaborator.team === team.name)}
             />)}
     </div>
   )

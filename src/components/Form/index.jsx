@@ -4,7 +4,7 @@ import Select from "../Select"
 import Button from "../Button"
 import { useState } from "react"
 
-const Form = ({addNewCollaborator, teams}) => {
+const Form = ({collaboratorRegistered, teams}) => {
 
     const [name, setName] = useState("")
     const [position, setPosition] = useState("")
@@ -13,13 +13,16 @@ const Form = ({addNewCollaborator, teams}) => {
  
     const handleSubmitForm = (e) => {
         e.preventDefault() 
-        addNewCollaborator({
+        collaboratorRegistered({
             name,
             position,
             team,
             image
         })
-        
+        setName("")
+        setPosition("")
+        setImage("")
+        setTeam("")
     }
     
     return (
