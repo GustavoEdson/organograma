@@ -4,15 +4,7 @@ import Select from "../Select"
 import Button from "../Button"
 import { useState } from "react"
 
-const Form = ({onCollaborator}) => {
-    const teams = [
-        "Programmers",
-        "UX/UI",
-        "Data Science", 
-        "Devops", 
-        "Mobile", 
-        "Innovation"
-    ]
+const Form = ({addNewCollaborator, teams}) => {
 
     const [name, setName] = useState("")
     const [position, setPosition] = useState("")
@@ -21,7 +13,7 @@ const Form = ({onCollaborator}) => {
  
     const handleSubmitForm = (e) => {
         e.preventDefault() 
-        onCollaborator({
+        addNewCollaborator({
             name,
             position,
             team,
@@ -58,7 +50,9 @@ const Form = ({onCollaborator}) => {
                 value={image}
                 onChangeInput={value => setImage(value)}
             />
-            <Select name="Team" items={teams} onChangeSelect={value => setTeam(value)}/>
+            <Select name="Team" 
+                items={teams} 
+                onChangeSelect={value => setTeam(value)}/>
             <Button>Create Card</Button>
             </form>
         </section>
