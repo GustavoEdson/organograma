@@ -1,18 +1,21 @@
 import "./Select.css"
 
-const Select = ({name, items, isRequired, value, onChangeSelect}) => {
+const Select = ({label, items, isRequired, value, onChangeSelect}) => {
 
     return (
         <div className="select">
-            <label htmlFor="select">{name}</label>
-            <select 
-            name="select" 
-            id="select" 
-            required={isRequired}
-            value={value} 
-            onChange={e => onChangeSelect(e.target.value)}>
-            {items.map(item => <option key={item}>{item}</option>)}
-            </select>
+            <label htmlFor="select">{label}</label>
+                <select 
+                    name="select" 
+                    id="select" 
+                    required={isRequired}
+                    value={value} 
+                    onChange={e => onChangeSelect(e.target.value)}>
+                    <option value=""></option>
+                    {items.map(item => {
+                        return  <option key={item}>{item}</option>
+                    })}
+                </select>
         </div> 
     )
 }

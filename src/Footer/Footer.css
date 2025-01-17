@@ -1,0 +1,16 @@
+.foot {
+    font-family: sans-serif;
+    background: #6278F7;
+    width: 100%;
+    height: 15rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-self: center;
+    justify-content: center;
+}
+
+.mini-text {
+    font-size: 1.5rem;
+}
+

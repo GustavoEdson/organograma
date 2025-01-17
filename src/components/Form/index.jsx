@@ -53,10 +53,15 @@ const Form = ({collaboratorRegistered, teams}) => {
                 value={image}
                 onChangeInput={value => setImage(value)}
             />
-            <Select name="Team" 
+            <Select 
+                label="Team"
+                isRequired={true}
                 items={teams} 
+                value={team}
                 onChangeSelect={value => setTeam(value)}/>
-            <Button>Create Card</Button>
+            <Button>
+                Create Card
+            </Button>
             </form>
         </section>
     )
