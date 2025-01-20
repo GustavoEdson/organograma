@@ -3,7 +3,7 @@ import { useState } from 'react'
 import Banner from './components/Banner'
 import Form from './components/Form'
 import Team from './components/Team'
-import Footer from './Footer'
+import Footer from './components/Footer'
 
 
 function App() {
@@ -44,7 +44,6 @@ function App() {
   const [collaborators, setCollaborators] = useState([])
   
   const newContributorAdded  = (collaborator) => {
-    debugger
     setCollaborators([...collaborators, collaborator])
   }
 
