@@ -6,18 +6,18 @@ const Footer = () => {
             <section className="social-medias">
                <ul>
                     <li> 
-                        <img src="/public/imagens/fb.png" alt="" />
+                        <img src="/imagens/fb.png" alt="" />
                     </li>
                     <li>
-                        <img src="/public/imagens/tw.png" alt="" />
+                        <img src="/imagens/tw.png" alt="" />
                     </li>
                     <li>
-                        <img src="/public/imagens/ig.png" alt="" />
+                        <img src="/imagens/ig.png" alt="" />
                     </li>
                </ul>
             </section>
             <section className="logo">
-                <img src="/public/imagens/logo.png" alt="" />
+                <img src="/imagens/logo.png" alt="" />
             </section>
             <div className="mini-text">
                 Made by Gustavo Edson
