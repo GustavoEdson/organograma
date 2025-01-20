@@ -3,7 +3,7 @@ import "./Banner.css"
 const Banner = () => {
     return (
         <header className="banner">
-            <img src="/imagens/banner.png" alt="main banner image" />
+            <h1>organograma</h1>
         </header>
     )
 }

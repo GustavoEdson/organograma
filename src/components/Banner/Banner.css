@@ -1,6 +1,14 @@
 .banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #6278F7;
     text-align: center;
+    color: #fff;
+    font-family: sans-serif;
+    height: 10rem;
+    text-transform: uppercase;
+    margin: 0;
 }
 
 .banner img {
