@@ -4,7 +4,7 @@ const Footer = () => {
     return (
     <footer className="foot">
             <div className="mini-text">
-                Made by Gustavo Edson
+                Made by Gustavo Edson & Alura
             </div>    
     </footer>
     )

@@ -3,6 +3,7 @@ import InputText from "../Input"
 import Select from "../Select"
 import Button from "../Button"
 import { useState } from "react"
+import { v4 as uuidv4} from "uuid"
 
 const Form = ({collaboratorRegistered, teams}) => {
 
@@ -17,7 +18,8 @@ const Form = ({collaboratorRegistered, teams}) => {
             name,
             position,
             team,
-            image
+            image,
+            id: uuidv4(),
         })
         setName("")
         setPosition("")

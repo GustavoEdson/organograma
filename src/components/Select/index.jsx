@@ -12,8 +12,8 @@ const Select = ({label, items, isRequired, value, onChangeSelect}) => {
                     value={value} 
                     onChange={e => onChangeSelect(e.target.value)}>
                     <option value=""></option>
-                    {items.map(item => {
-                        return  <option key={item}>{item}</option>
+                    {items.map((item, i) => {
+                        return  <option key={i}>{item}</option>
                     })}
                 </select>
         </div> 
