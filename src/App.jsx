@@ -4,61 +4,77 @@ import Banner from './components/Banner'
 import Form from './components/Form'
 import Team from './components/Team'
 import Footer from './components/Footer'
+import { v4 as uuidv4 } from 'uuid'
+
 
 
 function App() {
 
-  const teams = [
+  const [teams, setTeams] = useState ([
     {
+        id: uuidv4(),
         name: 'Front-End',
-        primaryColor: '#82CFFA',
-        secondaryColor: '#E8F8FF',
+        color: '#E8F8FF',
     },
     {
+        id: uuidv4(),
         name: 'Data Science',
-        primaryColor: '#A6D157',
-        secondaryColor: '#F0F8E2',
+        color: '#F0F8E2',
     },
     {
+        id: uuidv4(),
         name: 'Devops',
-        primaryColor: '#E06B69',
-        secondaryColor: '#FDE7E8',
+        color: '#FDE7E8',
     },
     {
+        id: uuidv4(),
         name: 'UX e Design',
-        primaryColor: '#D86EBF',
-        secondaryColor: '#FAE5F5',
+        color: '#FAE5F5',
     },
     {
+        id: uuidv4(),
         name: 'Mobile',
-        primaryColor: '#FEBA05',
-        secondaryColor: '#FFF5D9',
+        color: '#FFF5D9',
     },
     {
+        id: uuidv4(),
         name: 'Inovação e Gestão',
-        primaryColor: '#FF8A29',
-        secondaryColor: '#FFEEDF',
+        color: '#FFEEDF',
     }
-  ]
+  ]);
 
   const [collaborators, setCollaborators] = useState([])
   
-  const newContributorAdded  = (collaborator) => {
-    setCollaborators([...collaborators, collaborator])
+  const deleteCollaborator = (id) => {
+    setCollaborators(collaborators.filter(collaborator => collaborator.id !== id))
+  }
+
+  const changeTeamColor = (color, id) => {
+    setTeams(teams.map(team => {
+        if (team.id === id) team.color = color
+            return team
+    }));
   }
 
   return (
     <div>
        <Banner />
-       <Form teams={teams.map(team => team.name)} collaboratorRegistered={collaborator => newContributorAdded(collaborator)}/>
-        {teams.map(team => 
-            <Team 
-                key={team.name} 
-                name={team.name} 
-                primaryColor={team.primaryColor} 
-                secondaryColor={team.secondaryColor}
-                collaborators={collaborators.filter(collaborator => collaborator.team === team.name) }
-            />)}
+       <Form 
+        teams={teams.map(team => team.name)} 
+        collaboratorRegistered={
+            collaborator => 
+            setCollaborators([...collaborators, collaborator])}/>
+            <section>
+            <h1>My organization</h1>
+            {teams.map((team, i) => 
+                <Team
+                    key={i}
+                    team={team} 
+                    changeColor={changeTeamColor}
+                    collaborators={collaborators.filter(collaborator => collaborator.team === team.name) }
+                    onDelete={deleteCollaborator}
+                />)}
+            </section>
         <Footer />
     </div>
   )
