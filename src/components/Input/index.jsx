@@ -1,20 +1,20 @@
-import "./InputText.css"
+import "./Input.css"
 
-const InputText = ({label, inputId, inputPlaceholder, isRequired, value, onChangeInput}) => {
-
+const InputText = ({type = "text", label, inputId, inputPlaceholder, isRequired, value, onChangeInput}) => {
     return (
-        <div className="input-text">
+        <div className={`input input-${type}`}>
             <label htmlFor={inputId}>
                 {label}
             </label>
-            <input 
-            value={value} 
-            onChange={e => onChangeInput(e.target.value)} 
-            required={isRequired} 
-            type="text" 
-            id={inputId} 
-            name={inputId} 
-            placeholder={`${inputPlaceholder}...`}/>
+            <input
+                type={type}
+                value={value} 
+                onChange={e => onChangeInput(e.target.value)}
+                required={isRequired} 
+                id={inputId} 
+                name={inputId} 
+                placeholder={`${inputPlaceholder}...`}
+            />
         </div>
     )
 }
