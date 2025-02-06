@@ -2,6 +2,7 @@ import hexToRgba from 'hex-to-rgba';
 import Card from "../Card"
 import "./Team.css"
 
+
 const Team = ({ team, collaborators, onDelete, changeColor, onFavorite }) => {
    return (
        collaborators.length > 0 ? (

@@ -5,6 +5,7 @@ import Form from './components/Form'
 import Team from './components/Team'
 import Footer from './components/Footer'
 import { v4 as uuidv4 } from 'uuid'
+import ViewButton from './ViewButton'
 
 
 
@@ -42,8 +43,8 @@ function App() {
         color: '#FFEEDF',
     }
   ]);
-
   const [collaborators, setCollaborators] = useState([])
+  const [view, setView] = useState(true)
 
   const deleteCollaborator = (id) => {
     setCollaborators(collaborators.filter(collaborator => collaborator.id !== id))
@@ -67,30 +68,37 @@ function App() {
     }))
   }
 
+  const solveFormView = () => {
+    setView(!view)
+    console.log(view);
+  }
+
+
   return (
     <div>
-     
-       <Banner />
-       <Form
-       
-        registerTeam={registerTeam}
-        teams={teams.map(team => team.name)} 
-        collaboratorRegistered={
-            collaborator => 
-            setCollaborators([...collaborators, collaborator])}/>
+      <Banner />
+       { view ?
+        <>
+          <Form
+            registerTeam={registerTeam}
+            teams={teams.map(team => team.name)}
+            collaboratorRegistered={
+            collaborator => setCollaborators([...collaborators, collaborator])} 
+          />
+        </> 
+        : ""
+        } {}
+          <ViewButton onRemove={solveFormView} />
             <section>
-            <h1>My organization</h1>
-            {teams.map((team, i) => 
-                <Team
-                    
-                    onFavorite={resolveFavorite}
-                    key={i}
-                    team={team} 
-                    changeColor={changeTeamColor}
-                    collaborators={collaborators.filter(collaborator => collaborator.team === team.name) }
-                    onDelete={deleteCollaborator}
-                />)}
-                
+              <h1>My organization</h1>
+              {teams.map((team, i) => 
+              <Team
+                onFavorite={resolveFavorite}
+                key={i}
+                team={team}
+                changeColor={changeTeamColor}
+                collaborators={collaborators.filter(collaborator => collaborator.team === team.name)}
+                onDelete={deleteCollaborator} />)}
             </section>
         <Footer />
     </div>

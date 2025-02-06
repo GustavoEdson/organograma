@@ -6,6 +6,7 @@
     margin: 80px 50px;
 }
 
+
 .container-form .form {
     max-width: 80%;
     background: #F7F7F7;
@@ -16,4 +17,10 @@
 .container-form .form h2 {
     font-weight: 400;
     font-size: 32px;
+}
+
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: sans-serif;
 }
